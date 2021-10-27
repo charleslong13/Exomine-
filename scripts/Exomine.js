@@ -1,10 +1,13 @@
+import { Governors } from "./Governors.js"
+
+
 export const Exomine = () => {
     return `
     <article class="upper">
         <section class="userSelections">
             <div class="userSelections__governor">
                 <p>Choose Governor</p>
-                <select name="chooseGovernor" id=""></select>
+                ${Governors()}
             </div>
             <div class="userSelections__facility">
                 <p>Choose Facility</p>
