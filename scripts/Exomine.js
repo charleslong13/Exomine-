@@ -1,3 +1,7 @@
+import { Facility } from "./Facilities.js"
+
+
+
 import { Governors } from "./Governors.js"
 
 
@@ -11,7 +15,7 @@ export const Exomine = () => {
             </div>
             <div class="userSelections__facility">
                 <p>Choose Facility</p>
-                <select name="chooseFacility" id=""></select>
+                ${Facility()}
             </div>
         </section>
         <aside class="colonyMinerals">
