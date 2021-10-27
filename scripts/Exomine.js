@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import { Facility } from "./Facilities.js"
 
 
 
+=======
+import { Governors } from "./Governors.js"
+>>>>>>> eb75cafafae668a07168e924e6338ae939340917
 
 
 export const Exomine = () => {
@@ -10,7 +14,7 @@ export const Exomine = () => {
         <section class="userSelections">
             <div class="userSelections__governor">
                 <p>Choose Governor</p>
-                <select name="chooseGovernor" id=""></select>
+                ${Governors()}
             </div>
             <div class="userSelections__facility">
                 <p>Choose Facility</p>
