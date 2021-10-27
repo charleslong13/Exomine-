@@ -1,25 +1,29 @@
-import { getFacilities,setFacility } from './database.js'
+import { getFacilities,setFacility,getTransientState } from './database.js'
 
 const facilities = getFacilities()
 
 
-
-
-
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === 'facilityDropdown') {
+            setFacility(parseInt(event.target.value))
+        }
+    }
+)
 
 const disableDropbox = () => {
-    const governorsElement = document.getElementById("governorDropDown")
+    const state = getTransientState()
     const facilityElement = document.getElementById("facilityDropdown")
-    if (governorsElement !== null) {
-        facilityElement.removeAttribute("disabled")
-    }
+    if (state.governorId !== "0") {
+        return facilityElement.removeAttribute("disabled", "")
+    } 
 }
-
 
 // function to render the facility dropdown box
 export const Facility = () => {
     disableDropbox()
-    let html = "<select id=“facilityDropdown” disabled>"
+    let html = "<select id='facilityDropdown' disabled>"
     
     html += '<option name="facility" value="0">Select a Facility</option>'
     
