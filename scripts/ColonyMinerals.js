@@ -7,9 +7,9 @@ import {setGovernor} from "./database.js"
 
 document.addEventListener(
     "change",
-    (clickEvent) => {
-        if (clickEvent.target.id === "governorDropDown") {
-            setGovernor(parseInt(clickEvent.target.value))
+    (event) => {
+        if (event.target.id === "governorDropDown") {
+            setGovernor(parseInt(event.target.value))
         }
     }
 )
@@ -19,14 +19,14 @@ export const ColonyMinerals = () => {
     const minerals = getMinerals()
     const transientState = getTransientState()
 
-    if (transientState.selectedColony) {
+    if (!transientState.selectedGovernor) {
         return ""
     } else {
 
         let html = "<ul>"
 
         for (const colonyMineral of colonyMinerals) {
-            if (colonyMineral.colonyId === transientState.selectedColony) {
+            if (colonyMineral.colonyId === transientState.selectedGovernor) {
                 const foundMineral = minerals.find(mineral => mineral.id === colonyMineral.mineralId)
                 html += `<li>${colonyMineral.quantity} ${foundMineral.name}</li>`
             }
@@ -36,6 +36,15 @@ export const ColonyMinerals = () => {
     return html
     }
 }
+
+
+
+
+
+
+
+
+
 // export const ColonyMinerals = () => {
 //     const colonyMinerals = getColonyMinerals()
 //     const minerals = getMinerals()
