@@ -175,6 +175,7 @@ export const setGovernor = (governorId) => {
     document.dispatchEvent( new CustomEvent("stateChanged") )
 }
 
+
 export const getGovernors = () => {
     return database.governors.map(governor => ({...governor}))
 }
