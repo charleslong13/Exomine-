@@ -19,7 +19,7 @@ const disableDropbox = () => {
 // function to render the facility dropdown box
 export const Facility = () => {
     disableDropbox()
-    let html = "<select id=“facilityDropdown” disabled>"
+    let html = "<select id=“facilityDropdown” >"
     
     html += '<option name="facility" value="0">Select a Facility</option>'
     
