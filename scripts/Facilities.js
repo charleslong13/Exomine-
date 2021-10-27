@@ -20,6 +20,8 @@ const disableDropbox = () => {
 export const Facility = () => {
     disableDropbox()
     let html = "<select id=“facilityDropdown” >"
+    // disableDropbox()
+    let html = "<select id='facilityDropdown'>"
     
     html += '<option name="facility" value="0">Select a Facility</option>'
     

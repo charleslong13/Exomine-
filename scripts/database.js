@@ -199,6 +199,7 @@ export const getFacilityMinerals = () => {
 export const getColonyMinerals = () => {
     return database.colonyMinerals.map(colonyMineral => ({...colonyMineral}))
 }
+
 export const getTransientState = () => {
     return {...database.transientState}
 }
