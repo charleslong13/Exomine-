@@ -1,4 +1,5 @@
 import { Facility } from "./Facilities.js"
+import { FacilityMinerals } from "./FacilityMinerals.js"
 
 
 
@@ -32,10 +33,7 @@ export const Exomine = () => {
         <section class="facilityMinerals">
             <h2 class="facilityMinerals__title">Facility Minerals for {Colony}</h2>
             <div class="facilityMinerals__list">
-                <ul>
-                    <li>37 Iron</li>
-                    <li>22 Nickel</li>
-                </ul>
+                ${FacilityMinerals()}
             </div>
         </section>
         <aside class="cart">
