@@ -1,8 +1,17 @@
+
+import { ColonyMinerals } from "./ColonyMinerals.js"
 import { Facility } from "./Facilities.js"
-
-
-
 import { Governors } from "./Governors.js"
+
+
+
+    
+
+
+import { FacilityMinerals } from "./FacilityMinerals.js"
+
+
+
 
 
 export const Exomine = () => {
@@ -21,9 +30,9 @@ export const Exomine = () => {
         <aside class="colonyMinerals">
             <h2 class="colonyMinerals__title">{Colony} Minerals</h2>
             <div class="colonyMinerals__list">
+            ${ColonyMinerals()}
                 <ul>
-                    <li>3 Iron</li>
-                    <li>1 Salt</li>
+                 
                 </ul>
             </div>
         </aside>
@@ -32,10 +41,7 @@ export const Exomine = () => {
         <section class="facilityMinerals">
             <h2 class="facilityMinerals__title">Facility Minerals for {Colony}</h2>
             <div class="facilityMinerals__list">
-                <ul>
-                    <li>37 Iron</li>
-                    <li>22 Nickel</li>
-                </ul>
+                ${FacilityMinerals()}
             </div>
         </section>
         <aside class="cart">
