@@ -1,0 +1,50 @@
+header {
+    margin: 10px;
+}
+.container {
+    margin: 10px;
+}
+
+.upper {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.lower {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.userSelections {
+    margin: 10px;
+    border: green dotted 2px;
+}
+
+.userSelections__governor {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.userSelections__facility {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.colonyMinerals {
+    margin: 10px;
+    border: green dotted 2px;
+}
+
+.facilityMinerals {
+    margin: 10px;
+    border: green dotted 2px;
+}
+
+.cart {
+    margin: 10px;
+    border: green dotted 2px;
+}
