@@ -154,6 +154,12 @@ const database = {
             colonyId: 2,
             mineralId: 4,
             quantity: 3
+        },
+        {
+            id: 2,
+            colonyId: 1,
+            mineralId: 1,
+            quantity: 11
         }
     ],
     cart: {}
