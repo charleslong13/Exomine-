@@ -1,32 +1,30 @@
-import { getFacilityMinerals, getMinerals } from "./database.js"
+import { getFacilityMinerals, getMinerals, getTransientState, setFacility } from "./database.js"
 
 document.addEventListener(
     "change",
-    (clickEvent) => {
-        if (clickEvent.target.id === "facilityDropdown") {
-            //render HTML when facility dropdown is clicked
-            document.dispatchEvent( new CustomEvent("stateChanged") )
+    (event) => {
+        if (event.target.id === "facilityDropdown") {
+            //adds the selected facility to the transient state and re-renders HTML
+            setFacility(parseInt(event.target.value))
         }            
     }
 )
 
 export const FacilityMinerals = () => {
     const facilityMinerals = getFacilityMinerals()
+    const transientState = getTransientState()
     const minerals = getMinerals()
-    const userSelection = document.getElementById("facilityDropdown");
 
-    //if the facility dropdown has not yet been created (Facility() has not been run), then the list should be blank
-    if (userSelection === null) {
+    // if the facility has not yet been selected, then the list should be blank
+    if (!transientState.selectedFacility) {
         return ""
     } else {
-        //if the facility dropdown has been rendered, grab the value of the currently selected option
-        const currentOptionValue = parseInt(userSelection.options[userSelection.selectedIndex].value)
-
+        //if the facility has been selected, and the facility id in the transient state...
         let html = "<ul>"
         //iterate facilityMinerals array to access each object
         for (const facilityMineral of facilityMinerals) {
-            //if the facilityId is the same as the value of the selected option (the facility.id) then...
-            if (facilityMineral.facilityId === currentOptionValue) {
+            //if the facilityId is the same as the value of the selected option (the facility id) then...
+            if (facilityMineral.facilityId === transientState.selectedFacility) {
                 //find the mineral where the id matched the mineralid on the facilitymineral object, in order to grab the name from the correct mineral object
                 const foundMineral = minerals.find(mineral => mineral.id === facilityMineral.mineralId)
                 //add html list items
@@ -36,16 +34,6 @@ export const FacilityMinerals = () => {
 
         html += "</ul>"
 
-
         return html
     }
 }
-
-// const findFacilityMinerals = () => {
-//     for (facilityMineral of facilityMinerals) {
-//         if (facilityMineral.id === objId) {
-//             const foundMineral = minerals.find(mineral => mineral.id === facilityMineral.mineralId)
-//             html += minerals.map(mineral =>`${facilityMineral.quantity} ${foundMineral.name}`).join("")
-//         }
-//     }
-// }

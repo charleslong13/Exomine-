@@ -31,9 +31,6 @@ export const Exomine = () => {
             <h2 class="colonyMinerals__title">{Colony} Minerals</h2>
             <div class="colonyMinerals__list">
             ${ColonyMinerals()}
-                <ul>
-                 
-                </ul>
             </div>
         </aside>
     </article>
