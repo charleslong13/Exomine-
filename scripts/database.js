@@ -162,11 +162,21 @@ const database = {
             quantity: 11
         }
     ],
-    cart: {}
+    transientState: {}
 }
 
 export const setFacility = (facilityId) => {
-    database.cart.selectedFacility = facilityId
+    database.transientState.selectedFacility = facilityId
+    document.dispatchEvent( new CustomEvent("stateChanged") )
+}
+
+export const setGovernor = (governorId) => {
+    database.transientState.selectedGovernor = governorId
+    document.dispatchEvent( new CustomEvent("stateChanged") )
+}
+
+export const setFacility = (facilityId) => {
+    database.transientState.selectedFacility = facilityId
     document.dispatchEvent( new CustomEvent("stateChanged") )
 }
 
