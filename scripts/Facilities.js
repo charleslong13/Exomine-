@@ -13,7 +13,7 @@ const facilities = getFacilities()
 // function to render the facility dropdown box
 export const Facility = () => {
     // disableFacility()
-    let html = "<select>"
+    let html = "<select id='facilityDropdown'>"
 
     html += '<option name="facility" value="0">Select a Facility</option>'
 
