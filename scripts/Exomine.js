@@ -42,6 +42,7 @@ export const Exomine = () => {
             </div>
         </section>
         <aside class="cart">
+        <h2 class="space_cart">Space Cart</h2>
             <div class="cart__list">
                 <p>1 ton of Iron for Ganymede</p>
             </div>

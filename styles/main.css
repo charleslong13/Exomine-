@@ -52,3 +52,8 @@ header {
 ul {
     list-style: none;
 }
+
+.space_cart {
+   text-align: center;
+    margin: 15px;
+}
