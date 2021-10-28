@@ -2,17 +2,7 @@
 import { ColonyMinerals } from "./ColonyMinerals.js"
 import { Facility } from "./Facilities.js"
 import { Governors } from "./Governors.js"
-
-
-
-    
-
-
 import { FacilityMinerals } from "./FacilityMinerals.js"
-
-
-
-
 
 export const Exomine = () => {
     return `

@@ -9,6 +9,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.id === "governorDropDown") {
+            //add governor id to transient state and re-render HTML
             setGovernor(parseInt(event.target.value))
         }
     }

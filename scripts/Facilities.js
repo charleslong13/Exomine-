@@ -7,6 +7,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.id === 'facilityDropdown') {
+            //add facility id to transient state and re-render HTML
             setFacility(parseInt(event.target.value))
         }
     }
