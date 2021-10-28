@@ -47,18 +47,16 @@ export const colonyTitle = () => {
         return "Colony Minerals"
     } else {
 
-        let html = "<ul>"
+        
 //iterate through our copy of the governor data from our database 
         //then check if the governor's id matches the selected governor 
         for (const governor of foundGovernors) {
             if (governor.id === tempState.selectedGovernor) {
                 const foundColony = colonies.find(colony => colony.id === governor.colonyId)
-                html += `<li>${foundColony.name} Minerals</li>`
+                return `<h2>${foundColony.name} Minerals<h2>`
             }
         }
-        html += "</ul>"
-
-        return html 
+       
     }
 }
 
