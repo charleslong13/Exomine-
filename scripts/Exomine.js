@@ -9,11 +9,11 @@ export const Exomine = () => {
     <article class="upper">
         <section class="userSelections">
             <div class="userSelections__governor">
-                <p>Choose Governor</p>
+                <p><b>Choose Governor:</b></p>
                 ${Governors()}
             </div>
             <div class="userSelections__facility">
-                <p>Choose Facility</p>
+                <p><b>Choose Facility:</b></p>
                 ${Facility()}
             </div>
         </section>
