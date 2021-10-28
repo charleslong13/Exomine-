@@ -2,9 +2,15 @@ import { getFacilities,getTransientState,setFacility } from './database.js'
 
 const facilities = getFacilities()
 
-
-
-
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "facilityDropdown") {
+            //adds the selected facility to the transient state and re-renders HTML
+            setFacility(parseInt(event.target.value))
+        }            
+    }
+)
 
 
 const disableDropbox = () => {

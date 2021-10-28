@@ -1,12 +1,11 @@
-import { getFacilityMinerals, getMinerals, getTransientState, setFacility } from "./database.js"
+import { getFacilityMinerals, getMinerals, getTransientState, setFacility, setMineral } from "./database.js"
 
 document.addEventListener(
-    "change",
-    (event) => {
-        if (event.target.id === "facilityDropdown") {
-            //adds the selected facility to the transient state and re-renders HTML
-            setFacility(parseInt(event.target.value))
-        }            
+    "click",
+    (clickEvent) => {
+        if (clickEvent.target.name === "mineralChoice") {
+            setMineral(parseInt(clickEvent.target.value))
+        }
     }
 )
 
@@ -27,8 +26,8 @@ export const FacilityMinerals = () => {
             if (facilityMineral.facilityId === transientState.selectedFacility) {
                 //find the mineral where the id matched the mineralid on the facilitymineral object, in order to grab the name from the correct mineral object
                 const foundMineral = minerals.find(mineral => mineral.id === facilityMineral.mineralId)
-                //add html list items
-                html += `<li>${facilityMineral.quantity} ${foundMineral.name}</li>`
+                //add html list items with radio buttons
+                html += `<li> <input type="radio" name="mineralChoice" value=${foundMineral.id}>${facilityMineral.quantity} ${foundMineral.name}</li>`
             }
         }
 
