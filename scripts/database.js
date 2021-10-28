@@ -177,10 +177,6 @@ export const setGovernor = (governorId) => {
     document.dispatchEvent( new CustomEvent("stateChanged") )
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 export const getGovernors = () => {
     return database.governors.map(governor => ({...governor}))
 }
@@ -208,10 +204,6 @@ export const getColonyMinerals = () => {
 export const getTransientState = () => {
     return {...database.transientState}
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 
 export const purchaseMineral = () => {
 
