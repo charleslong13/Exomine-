@@ -1,4 +1,4 @@
-import { getFacilityMinerals, getMinerals, getTransientState, setFacility, setMineral } from "./database.js"
+import { getFacilityMinerals, getMinerals, getTransientState, setFacility, setMineral, getGovernors, getColonies } from "./database.js"
 
 document.addEventListener(
     "click",
@@ -34,5 +34,33 @@ export const FacilityMinerals = () => {
         html += "</ul>"
 
         return html
+    }
+}
+
+//defining export function that dynamically changes the title based on governor selection
+
+export const lowerColonyTitle = () => {
+    const foundGovernors = getGovernors()
+    const tempState = getTransientState()
+    const colonies = getColonies()
+// if a governor has not been selected then display "Colony Minerals" 
+    if (!tempState.selectedGovernor) {
+        return "Facility Minerals"
+    } else {
+
+        let html = "<ul>"
+        //iterate through our copy of the governor data from our database 
+        //then check if the governor's id matches the selected governor 
+        for (const governor of foundGovernors) {
+            if (governor.id === tempState.selectedGovernor) {
+                //find the colony id that matches the governor's colonyId
+                const foundColony = colonies.find(colony => colony.id === governor.colonyId)
+                //render dynamic title in html 
+                html += `<li>Facility Minerals for ${foundColony.name}</li>`
+            }
+        }
+        html += "</ul>"
+
+        return html 
     }
 }

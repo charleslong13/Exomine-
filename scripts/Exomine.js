@@ -8,7 +8,7 @@ import { colonyTitle } from "./ColonyMinerals.js"
     
 
 
-import { FacilityMinerals } from "./FacilityMinerals.js"
+import { FacilityMinerals, lowerColonyTitle } from "./FacilityMinerals.js"
 
 
 
@@ -36,7 +36,7 @@ export const Exomine = () => {
     </article>
     <article class="lower">
         <section class="facilityMinerals">
-            <h2 class="facilityMinerals__title">Facility Minerals for {Colony}</h2>
+            <h2 class="facilityMinerals__title">${lowerColonyTitle()}</h2>
             <div class="facilityMinerals__list">
                 ${FacilityMinerals()}
             </div>

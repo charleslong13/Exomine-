@@ -37,22 +37,23 @@ export const ColonyMinerals = () => {
     return html
     }
 }
-
+// /defining export function that dynamically changes the title based on governor selection
 export const colonyTitle = () => {
     const foundGovernors = getGovernors()
     const tempState = getTransientState()
     const colonies = getColonies()
-
+// if a governor has not been selected then display "Colony Minerals" 
     if (!tempState.selectedGovernor) {
         return "Colony Minerals"
     } else {
 
         let html = "<ul>"
-
+//iterate through our copy of the governor data from our database 
+        //then check if the governor's id matches the selected governor 
         for (const governor of foundGovernors) {
-            if (governor.colonyId === colonies.id) {
+            if (governor.id === tempState.selectedGovernor) {
                 const foundColony = colonies.find(colony => colony.id === governor.colonyId)
-                html += `${foundColony} Minerals`
+                html += `<li>${foundColony.name} Minerals</li>`
             }
         }
         html += "</ul>"
