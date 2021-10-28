@@ -167,6 +167,7 @@ const database = {
     }
 }
 
+
 export const setFacility = (facilityId) => {
     database.transientState.selectedFacility = facilityId
     document.dispatchEvent( new CustomEvent("stateChanged") )
@@ -181,6 +182,7 @@ export const setMineral = (mineralId) => {
     database.transientState.selectedMineral = mineralId
     document.dispatchEvent( new CustomEvent("stateChanged") )
 }
+
 
 export const getGovernors = () => {
     return database.governors.map(governor => ({...governor}))
@@ -211,8 +213,27 @@ export const getTransientState = () => {
 }
 
 export const purchaseMineral = () => {
+    // Copy the current state of user choices
+    const newOrder = {...database.transientState}
 
-        // Broadcast custom event to entire document so that the
-        // application can re-render and update state
-        document.dispatchEvent( new CustomEvent("stateChanged") )
+    // Add a new primary key to the object
+    const lastIndex = database.colonyMinerals.length - 1
+    
+    //Account for when the array may have a length of zero
+    if (lastIndex === -1){
+        newOrder.id = 1
+    } else {
+        newOrder.id = database.colonyMinerals[lastIndex].id + 1
+    }
+
+    // Add the new order object to colony Minerals state
+    database.colonyMinerals.push(newOrder)
+
+    // Reset the temporary state for user choices
+    database.transientState = {}
+
+
+    // Broadcast custom event to entire document so that the
+    // application can re-render and update state
+    document.dispatchEvent( new CustomEvent("stateChanged") )
 }
