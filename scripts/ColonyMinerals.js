@@ -29,8 +29,8 @@ export const ColonyMinerals = () => {
 
         for (const colonyMineral of colonyMinerals) {
             if (colonyMineral.colonyId === transientState.selectedGovernor) {
-                const foundMineral = minerals.find(mineral => mineral.id === colonyMineral.mineralId)
-                html += `<li>${colonyMineral.quantity} ${foundMineral.name}</li>`
+                const selectedMineral = minerals.find(mineral => mineral.id === colonyMineral.selectedMineral)
+                html += `<li>${colonyMineral.quantity} ${selectedMineral.name}</li>`
             }
         }
     html += "</ul>"

@@ -9,11 +9,11 @@ export const Exomine = () => {
     <article class="upper">
         <section class="userSelections">
             <div class="userSelections__governor">
-                <p>Choose Governor</p>
+                <p><b>Choose Governor:</b></p>
                 ${Governors()}
             </div>
             <div class="userSelections__facility">
-                <p>Choose Facility</p>
+                <p><b>Choose Facility:</b></p>
                 ${Facility()}
             </div>
         </section>
@@ -32,6 +32,7 @@ export const Exomine = () => {
             </div>
         </section>
         <aside class="cart">
+        <h2 class="space_cart">Space Cart</h2>
             <div class="cart__list">
                 <p>1 ton of Iron for Ganymede</p>
             </div>

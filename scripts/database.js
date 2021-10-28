@@ -151,16 +151,12 @@ const database = {
     colonyMinerals: [
         {
             id: 1,
-            colonyId: 2,
-            mineralId: 4,
-            quantity: 3
-        },
-        {
-            id: 2,
             colonyId: 1,
-            mineralId: 1,
-            quantity: 11
-        }
+            selectedMineral: 1,
+            selectedGovernor: 1,
+            selectedFacility: 1,
+            quantity: 1
+        },
     ],
     transientState: {
         
