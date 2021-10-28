@@ -1,4 +1,4 @@
-import { getGovernors, getTransientState, setColony } from "./database.js"
+import { getGovernors, getTransientState, setColony, } from "./database.js"
 
 
 document.addEventListener(
@@ -12,6 +12,7 @@ document.addEventListener(
                 return
             } else {
             setColony(foundGovernor.colonyId)
+            // setGovernor(parseInt(event.target.value))
             }
             
         }
