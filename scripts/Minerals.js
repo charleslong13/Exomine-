@@ -1,4 +1,5 @@
 
+import { ColonyMinerals } from "./ColonyMinerals.js"
 import { getTransientState } from "./database.js"
 import { getFacilityMinerals } from "./database.js"
 import { getColonyMinerals } from "./database.js"
@@ -15,7 +16,6 @@ let newFacilityMinerals = facilityMinerals.quantity --
 let newColonylMinerals = colonyMinerals.quantity ++
 
 // after minerals are added and subtracted reset the carts state.
-
 
 
 
