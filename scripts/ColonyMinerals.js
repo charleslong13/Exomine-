@@ -3,7 +3,7 @@ import { getColonyMinerals, getGovernors, getTransientState, getColonies, getMin
 export const ColonyMinerals = () => {
     const colonyMinerals = getColonyMinerals()
     const minerals = getMinerals()
-    // const transientState = getTransientState()
+    const transientState = getTransientState()
     const facilityMinerals = getFacilityMinerals()
 
     if (!transientState.colonyId) {
