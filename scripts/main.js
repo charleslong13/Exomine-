@@ -7,8 +7,8 @@ const mainContainer = document.querySelector(".container")
 const renderHTML = () => {
     mainContainer.innerHTML = Exomine()
 }
-renderHTML()
 
+renderHTML()
 
 //statechange event listener to listen for change event and rerender html
 

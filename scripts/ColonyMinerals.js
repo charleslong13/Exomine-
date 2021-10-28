@@ -10,6 +10,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.id === "governorDropDown") {
+            //add governor id to transient state and re-render HTML
             setGovernor(parseInt(event.target.value))
         }
     }
@@ -55,8 +56,7 @@ export const colonyTitle = () => {
                 const foundColony = colonies.find(colony => colony.id === governor.colonyId)
                 return `<h2>${foundColony.name} Minerals<h2>`
             }
-        }
-       
+        } 
     }
 }
 
