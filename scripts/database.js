@@ -151,16 +151,12 @@ const database = {
     colonyMinerals: [
         {
             id: 1,
-            colonyId: 2,
-            mineralId: 4,
-            quantity: 3
-        },
-        {
-            id: 2,
             colonyId: 1,
-            mineralId: 1,
-            quantity: 11
-        }
+            selectedMineral: 1,
+            selectedGovernor: 1,
+            selectedFacility: 1,
+            quantity: 1
+        },
     ],
     transientState: {
         
@@ -180,6 +176,11 @@ export const setGovernor = (governorId) => {
 export const setMineral = (mineralId) => {
     database.transientState.selectedMineral = mineralId
     document.dispatchEvent( new CustomEvent("stateChanged") )
+}
+
+export const setColony = (ColonyId) => {
+    database.transientState.colonyId = ColonyId
+    document.dispatchEvent( new CustomEvent("stateChanged"))
 }
 
 export const getGovernors = () => {
@@ -221,6 +222,8 @@ export const purchaseMineral = () => {
     } else {
         newOrder.id = database.colonyMinerals[lastIndex].id + 1
     }
+    // New order quantity for increment
+    newOrder.quantity = 0
     // Add the new order object to colony Minerals state
     database.colonyMinerals.push(newOrder)
     // Reset the temporary state for user choices

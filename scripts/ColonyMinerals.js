@@ -1,18 +1,9 @@
 import { getColonyMinerals, getTransientState } from "./database.js";
 
 import { getMinerals } from "./database.js";
-import {setGovernor} from "./database.js"
 
 
 
-document.addEventListener(
-    "change",
-    (event) => {
-        if (event.target.id === "governorDropDown") {
-            setGovernor(parseInt(event.target.value))
-        }
-    }
-)
 
 export const ColonyMinerals = () => {
     const colonyMinerals = getColonyMinerals()
