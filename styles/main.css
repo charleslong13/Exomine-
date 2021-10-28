@@ -1,59 +1,90 @@
 header {
     margin: 10px;
+    text-decoration: underline;
+    text-align: center;
 }
+
+
 .container {
     margin: 10px;
+    
 }
 
 .upper {
     display: flex;
     flex-direction: row;
     margin: 10px;
+    
+   
 }
 
 .lower {
     display: flex;
     flex-direction: row;
     margin: 10px;
+    
 }
 
 .userSelections {
     margin: 10px;
-    border: green dotted 2px;
+    /* border: green dotted 2px; */
+    display: min-content;
+    align-items: center;
+    
 }
 
 .userSelections__governor {
     display: flex;
     flex-direction: row;
     margin: 10px;
+    align-items: center;
 }
 
 .userSelections__facility {
     display: flex;
     flex-direction: row;
     margin: 10px;
+    align-items: center;
+    padding-left: 15px;
 }
 
 .colonyMinerals {
     margin: 10px;
-    border: green dotted 2px;
+    /* border: green dotted 2px; */
+    width: 20%;
+    margin-left: 60%;
 }
 
 .facilityMinerals {
     margin: 10px;
-    border: green dotted 2px;
+    /* border: green dotted 2px; */
+    width: 40%;
 }
 
 .cart {
     margin: 10px;
-    border: green dotted 2px;
+    /* border: green dotted 2px; */
+    width: 35%;
+    margin-left: 40%;
 }
 
 ul {
     list-style: none;
+    text-align: center;
 }
 
 .cart__title {
     text-align: center;
     margin: 15px;
 }
+
+html {
+    background-image: url("https://singularityhub.com/wp-content/uploads/2018/09/mining-extraction-raw-materials-on-colonized-Mars_shutterstock_1168829785-1068x601.jpg");
+    background-repeat: no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    color: orangered;
+}
+
