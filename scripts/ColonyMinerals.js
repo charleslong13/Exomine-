@@ -1,9 +1,10 @@
-import { getColonyMinerals, getGovernors, getTransientState, getColonies, getMinerals } from "./database.js";
+import { getColonyMinerals, getGovernors, getTransientState, getColonies, getMinerals, getFacilities, getFacilityMinerals } from "./database.js";
 
 export const ColonyMinerals = () => {
     const colonyMinerals = getColonyMinerals()
     const minerals = getMinerals()
-    const transientState = getTransientState()
+    // const transientState = getTransientState()
+    const facilityMinerals = getFacilityMinerals()
 
     if (!transientState.colonyId) {
         return ""
@@ -12,11 +13,11 @@ export const ColonyMinerals = () => {
         let html = "<ul>"
 
         for (const colonyMineral of colonyMinerals) {
-            if (colonyMineral.colonyId === transientState.colonyId) {
-                const selectedMineral = minerals.find(mineral => mineral.id === colonyMineral.selectedMineral)
-                html += `<li>${colonyMineral.quantity} ${selectedMineral.name}</li>`
-            }
+            const foundFacilityMineral = facilityMinerals.find(facilityMineral => colonyMineral.selectedFacilityMineral === facilityMineral.id)
+            const foundMineral = minerals.find(mineral => mineral.id === foundFacilityMineral.mineralId)
+            html += `<li>${colonyMineral.quantity} ${foundMineral.name}</li>`
         }
+
         html += "</ul>"
 
         return html
