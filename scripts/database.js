@@ -162,7 +162,9 @@ const database = {
             quantity: 11
         }
     ],
-    transientState: {}
+    transientState: {
+        
+    }
 }
 
 export const setFacility = (facilityId) => {
@@ -207,7 +209,6 @@ export const getColonyMinerals = () => {
 export const getTransientState = () => {
     return {...database.transientState}
 }
-
 
 export const purchaseMineral = () => {
 
