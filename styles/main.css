@@ -1,7 +1,10 @@
 header {
     margin: 10px;
     text-decoration: underline;
+    text-align: center;
 }
+
+
 .container {
     margin: 10px;
     
@@ -49,12 +52,13 @@ header {
     margin: 10px;
     /* border: green dotted 2px; */
     width: 20%;
+    margin-left: 60%;
 }
 
 .facilityMinerals {
     margin: 10px;
     /* border: green dotted 2px; */
-    width: 30%;
+    width: 40%;
 }
 
 .cart {
