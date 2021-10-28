@@ -1,7 +1,8 @@
-import { getColonyMinerals, getTransientState } from "./database.js";
+import { getColonyMinerals, getGovernors, getTransientState } from "./database.js";
 
 import { getMinerals } from "./database.js";
 import {setGovernor} from "./database.js"
+import {getColonies} from "./database.js"
 
 
 
@@ -37,6 +38,27 @@ export const ColonyMinerals = () => {
     return html
     }
 }
+// /defining export function that dynamically changes the title based on governor selection
+export const colonyTitle = () => {
+    const foundGovernors = getGovernors()
+    const tempState = getTransientState()
+    const colonies = getColonies()
+// if a governor has not been selected then display "Colony Minerals" 
+    if (!tempState.selectedGovernor) {
+        return "Colony Minerals"
+    } else {
+
+        
+//iterate through our copy of the governor data from our database 
+        //then check if the governor's id matches the selected governor 
+        for (const governor of foundGovernors) {
+            if (governor.id === tempState.selectedGovernor) {
+                const foundColony = colonies.find(colony => colony.id === governor.colonyId)
+                return `<h2>${foundColony.name} Minerals<h2>`
+            }
+        } 
+    }
+}
 
 
 
@@ -44,31 +66,4 @@ export const ColonyMinerals = () => {
 
 
 
-
-
-// export const ColonyMinerals = () => {
-//     const colonyMinerals = getColonyMinerals()
-//     const minerals = getMinerals()
-//     const userSelection = document.getElementById("governorDropDown")
-
-//     if (userSelection === null) {
-//         return ""
-//     } else {
-//         //if the governor dropdown has been rendered and selection made, grab the value of the selection
-//         const currentOptionValue = parseInt(userSelection.options[userSelection.selectedIndex].value)
-//         let html = "<ul>"
-//         //iterate through colonyMinerals array to access colonyMineral objects
-//         for (const colonyMineral of colonyMinerals) {
-//             //if the colonyMineral colonyId is the same as the selected governor option 
-//             if (colonyMineral.colonyId === currentOptionValue) {
-//                 //find the mineral whose id matched the colonyMineral's mineral id
-//                 const foundMineral = minerals.find(mineral => mineral.id === colonyMineral.mineralId)
-//                 //add html list items 
-//                 html += `<li>${colonyMineral.quantity} ${foundMineral.name}</li>`
-//             }
-//         }
-//         html += "</ul>"
-
-//         return html
-//     }
 
