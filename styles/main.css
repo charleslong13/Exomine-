@@ -53,7 +53,7 @@ ul {
     list-style: none;
 }
 
-.space_cart {
-   text-align: center;
+.cart__title {
+    text-align: center;
     margin: 15px;
 }

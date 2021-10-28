@@ -18,7 +18,7 @@ export const Facility = () => {
     const transientState = getTransientState()
     let html = ""
 
-    if (transientState.selectedGovernor) {
+    if (transientState.colonyId) {
         html += "<select id='facilityDropdown'>"
     } else {
         html += "<select id ='facilityDropdown' disabled>"
