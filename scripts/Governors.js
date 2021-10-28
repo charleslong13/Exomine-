@@ -1,6 +1,15 @@
-import { getGovernors, getTransientState } from "./database.js"
+import { getGovernors, getTransientState, setGovernor } from "./database.js"
 
 const governors = getGovernors()
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "governorDropDown") {
+            setGovernor(parseInt(event.target.value))
+        }
+    }
+)
 
 //defined a function that creates a governor dropdown menu 
 

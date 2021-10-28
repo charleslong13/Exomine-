@@ -1,6 +1,11 @@
 import { getColonyMinerals, getGovernors, getTransientState } from "./database.js";
 
 import { getMinerals } from "./database.js";
+<<<<<<< HEAD
+
+
+
+=======
 import {setGovernor} from "./database.js"
 import {getColonies} from "./database.js"
 
@@ -15,6 +20,7 @@ document.addEventListener(
         }
     }
 )
+>>>>>>> main
 
 export const ColonyMinerals = () => {
     const colonyMinerals = getColonyMinerals()

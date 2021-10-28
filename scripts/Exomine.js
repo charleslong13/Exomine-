@@ -2,7 +2,24 @@
 import { ColonyMinerals, colonyTitle } from "./ColonyMinerals.js"
 import { Facility } from "./Facilities.js"
 import { Governors } from "./Governors.js"
+<<<<<<< HEAD
+import { purchaseMineral } from "./database.js"
+import { FacilityMinerals } from "./FacilityMinerals.js"
+
+
+document.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "cart__button") {
+            purchaseMineral()
+        }
+    }
+)
+
+
+=======
 import { FacilityMinerals, facilityMineralTitle } from "./FacilityMinerals.js"
+>>>>>>> main
 
 export const Exomine = () => {
     return `
