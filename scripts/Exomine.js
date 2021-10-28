@@ -3,7 +3,7 @@ import { ColonyMinerals } from "./ColonyMinerals.js"
 import { Facility } from "./Facilities.js"
 import { Governors } from "./Governors.js"
 
-
+import { colonyTitle } from "./ColonyMinerals.js"
 
     
 
@@ -28,7 +28,7 @@ export const Exomine = () => {
             </div>
         </section>
         <aside class="colonyMinerals">
-            <h2 class="colonyMinerals__title">{Colony} Minerals</h2>
+            <h2 class="colonyMinerals__title">${colonyTitle()}</h2>
             <div class="colonyMinerals__list">
             ${ColonyMinerals()}
             </div>
