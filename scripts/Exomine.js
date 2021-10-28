@@ -2,15 +2,18 @@
 import { ColonyMinerals } from "./ColonyMinerals.js"
 import { Facility } from "./Facilities.js"
 import { Governors } from "./Governors.js"
-
-
-
-    
-
-
+import { purchaseMineral } from "./database.js"
 import { FacilityMinerals } from "./FacilityMinerals.js"
 
 
+document.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "cart__button") {
+            purchaseMineral()
+        }
+    }
+)
 
 
 
