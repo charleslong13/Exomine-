@@ -2,10 +2,9 @@
 import { ColonyMinerals, colonyTitle } from "./ColonyMinerals.js"
 import { Facility } from "./Facilities.js"
 import { Governors } from "./Governors.js"
-<<<<<<< HEAD
 import { purchaseMineral } from "./database.js"
-import { FacilityMinerals } from "./FacilityMinerals.js"
-
+import { FacilityMinerals, facilityMineralTitle } from "./FacilityMinerals.js"
+import { Cart } from "./Cart.js"
 
 document.addEventListener(
     "click",
@@ -15,11 +14,6 @@ document.addEventListener(
         }
     }
 )
-
-
-=======
-import { FacilityMinerals, facilityMineralTitle } from "./FacilityMinerals.js"
->>>>>>> main
 
 export const Exomine = () => {
     return `
@@ -35,23 +29,23 @@ export const Exomine = () => {
             </div>
         </section>
         <aside class="colonyMinerals">
-            <h2 class="colonyMinerals__title">${colonyTitle()}</h2>
+            ${colonyTitle()}
             <div class="colonyMinerals__list">
-            ${ColonyMinerals()}
+                ${ColonyMinerals()}
             </div>
         </aside>
     </article>
     <article class="lower">
         <section class="facilityMinerals">
-            <h2 class="facilityMinerals__title">${facilityMineralTitle()}</h2>
+            ${facilityMineralTitle()}
             <div class="facilityMinerals__list">
                 ${FacilityMinerals()}
             </div>
         </section>
         <aside class="cart">
-        <h2 class="space_cart">Space Cart</h2>
+            <h2 class="cart__title">Space Cart</h2>
             <div class="cart__list">
-                <p>1 ton of Iron for Ganymede</p>
+                ${Cart()}
             </div>
             <button id="cart__button">Purchase Mineral</button>
         </aside>

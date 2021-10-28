@@ -153,9 +153,15 @@ const database = {
             id: 1,
             colonyId: 1,
             selectedMineral: 1,
-            selectedGovernor: 1,
             selectedFacility: 1,
-            quantity: 1
+            quantity: 5
+        },
+        {
+            id: 1,
+            colonyId: 1,
+            selectedMineral: 4,
+            selectedFacility: 2,
+            quantity: 3
         },
     ],
     transientState: {
@@ -166,11 +172,6 @@ const database = {
 
 export const setFacility = (facilityId) => {
     database.transientState.selectedFacility = facilityId
-    document.dispatchEvent( new CustomEvent("stateChanged") )
-}
-
-export const setGovernor = (governorId) => {
-    database.transientState.selectedGovernor = governorId
     document.dispatchEvent( new CustomEvent("stateChanged") )
 }
 
