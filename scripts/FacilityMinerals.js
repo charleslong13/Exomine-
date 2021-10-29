@@ -20,7 +20,7 @@ export const FacilityMinerals = () => {
         return ""
     } else {
         //if the facility has been selected, and the facility id in the transient state...
-        let html = "<ul>"
+        let html = "<ul class='facilityMinerals__list'>"
         //iterate facilityMinerals array to access each object
         for (const facilityMineral of facilityMinerals) {
             //if the facilityId is the same as the value of the selected option (the facility id) then...

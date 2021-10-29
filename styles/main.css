@@ -1,42 +1,41 @@
 header {
     margin: 10px;
-    text-decoration: underline;
     text-align: center;
 }
 
-
 .container {
     margin: 10px;
-    
 }
 
 .upper {
     display: flex;
     flex-direction: row;
     margin: 10px;
-    
-   
+    justify-content: space-between;
 }
 
 .lower {
     display: flex;
     flex-direction: row;
     margin: 10px;
-    
-}
+    justify-content: space-between;
+}   
 
 .userSelections {
     margin: 10px;
-    /* border: green dotted 2px; */
-    display: min-content;
-    align-items: center;
-    
+    background-color: rgba(1, 1, 15, 0.747);
+    width: 30%;
+    min-width: 250px;
+    height: 140px;
+    padding-top:30px;
+    padding-bottom:30px
 }
 
 .userSelections__governor {
     display: flex;
     flex-direction: row;
     margin: 10px;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -45,44 +44,57 @@ header {
     flex-direction: row;
     margin: 10px;
     align-items: center;
-    padding-left: 15px;
+    justify-content: space-evenly;
 }
 
 .colonyMinerals {
     margin: 10px;
-    /* border: green dotted 2px; */
     width: 35%;
-
-    margin-left: 80px;
-  
     text-align: center;
     background-color: rgba(1, 1, 15, 0.747);
+    min-width: 250px;
+    width: 30%;
+    height: 200px
 }
 
 .facilityMinerals {
     margin: 10px;
-    /* border: green dotted 2px; */
     width: 40%;
     background-color: rgba(1, 1, 15, 0.747);
-    text-align: center;
+    text-align: center ;
+    min-width: 250px;
+    width: 30%;
+    height: 200px
+}
+
+.facilityMinerals__list {
+    text-align:left ;
+    margin-left: 10%;
+
 }
 
 .cart {
+    position: relative;
     margin: 10px;
-    /* border: green dotted 2px; */
-    width: 35%;
-    margin-left: 40%;
+    min-width: 250px;
+    width: 30%;
     background-color: rgba(1, 1, 15, 0.747);
+    width: 30%;
+    height: 200px
 }
 
 ul {
-    list-style: none;
-    text-align: center;
+    list-style-type: none;
+    padding: 0;
 }
 
 .cart__title {
     text-align: center;
-    margin: 15px;
+}
+
+.cart__list {
+    text-align: center;
+    margin-top: 40px;
 }
 
 .colonyMinerals__list {
@@ -101,6 +113,13 @@ html {
 }
 
 #cart__button {
-  margin-left: 35%;
-  margin-right: 35%;
+    max-width: 100px;
+    position: absolute;
+    bottom:5%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+
 }

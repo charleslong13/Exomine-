@@ -29,6 +29,12 @@ const database = {
             name: "Skynet",
             active: true,
             colonyId: 2
+        },
+        {
+            id: 6,
+            name: "Homer Simpson",
+            active: false,
+            colonyId: 1
         }
     ],
     colonies: [
@@ -58,13 +64,18 @@ const database = {
         {
             id: 2,
             name: "Pheonix Tower",
-            active: false
+            active: true
         },
         {
             id: 3,
             name: "Trailblazer Island",
             active: true
         },
+        {
+            id: 4,
+            name: "Springfield Nuclear Power Plant",
+            active: false
+        }
     ],
     minerals: [
         {
