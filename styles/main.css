@@ -56,12 +56,15 @@ header {
     margin-left: 80px;
   
     text-align: center;
+    background-color: rgba(1, 1, 15, 0.747);
 }
 
 .facilityMinerals {
     margin: 10px;
     /* border: green dotted 2px; */
     width: 40%;
+    background-color: rgba(1, 1, 15, 0.747);
+    text-align: center;
 }
 
 .cart {
