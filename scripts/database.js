@@ -49,7 +49,7 @@ const database = {
             name: "The Citadel"
         },
     ],
-    facilities : [
+    facilities: [
         {
             id: 1,
             name: "Full Moon Garrison",
@@ -92,12 +92,12 @@ const database = {
             name: "Blemflarck"
         },
     ],
-    facilityMinerals : [
+    facilityMinerals: [
         {
             id: 1,
             quantity: 25,
             facilityId: 1,
-            mineralId: 1 
+            mineralId: 1
         },
         {
             id: 2,
@@ -152,7 +152,7 @@ const database = {
         {
             id: 1,
             colonyId: 1,
-            mineralId:3,
+            mineralId: 3,
             quantity: 5
         },
         {
@@ -163,58 +163,77 @@ const database = {
         },
     ],
     transientState: {
-        
+
     }
 }
 
 
 export const setFacility = (facilityId) => {
     database.transientState.selectedFacility = facilityId
-    document.dispatchEvent( new CustomEvent("stateChanged") )
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const setFacilityMineral = (facilityMineralId) => {
     database.transientState.selectedFacilityMineral = facilityMineralId
-    document.dispatchEvent( new CustomEvent("stateChanged") )
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const setColony = (ColonyId) => {
     database.transientState.colonyId = ColonyId
-    document.dispatchEvent( new CustomEvent("stateChanged"))
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const getGovernors = () => {
-    return database.governors.map(governor => ({...governor}))
+    return database.governors.map(governor => ({ ...governor }))
 }
 
 export const getColonies = () => {
-    return database.colonies.map(colony => ({...colony}))
+    return database.colonies.map(colony => ({ ...colony }))
 }
 
 export const getFacilities = () => {
-    return database.facilities.map(facility => ({...facility}))
+    return database.facilities.map(facility => ({ ...facility }))
 }
 
 export const getMinerals = () => {
-    return database.minerals.map(mineral => ({...mineral}))
+    return database.minerals.map(mineral => ({ ...mineral }))
 }
 
 export const getFacilityMinerals = () => {
-    return database.facilityMinerals.map(facilityMineral => ({...facilityMineral}))
+    return database.facilityMinerals.map(facilityMineral => ({ ...facilityMineral }))
 }
 
 export const getColonyMinerals = () => {
-    return database.colonyMinerals.map(colonyMineral => ({...colonyMineral}))
+    return database.colonyMinerals.map(colonyMineral => ({ ...colonyMineral }))
 }
 
 export const getTransientState = () => {
-    return {...database.transientState}
+    return { ...database.transientState }
 }
 
 export const purchaseMineral = () => {
+    
     //find the object in facilityMinerals whose quantity needs to be decremented
-    //find the object in colonyMinerals whose quantity needs to be incremented
-    //use .quantity ++ use .quantity --
+    for (const facilityMineral of database.facilityMinerals) {
 
-    document.dispatchEvent( new CustomEvent("stateChanged"))
+        //find the object in colonyMinerals whose quantity needs to be incremented
+        for (const colonyMineral of database.colonyMinerals) {
+
+            if (facilityMineral.mineralId === colonyMineral.mineralId && database.transientState.selectedFacilityMineral === facilityMineral.id) {
+                //use .quantity ++ use .quantity -- to adjust quantities
+
+                facilityMineral.quantity--
+
+                colonyMineral.quantity++
+                // if the mineral doesnt exsit already then we need to add it to the colony mineral.
+            } else if (database.transientState.selectedFacilityMineral === facilityMineral.id) {
+                
+
+            }
+
+        }
+    }
+
+
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
