@@ -1,19 +1,16 @@
-import { getColonyMinerals, getTransientState, getColonies, getMinerals, getFacilities, getFacilityMinerals, getGovernors } from "./database.js";
+import { getColonyMinerals, getTransientState, getColonies, getMinerals} from "./database.js";
 
 export const ColonyMinerals = () => {
     const colonyMinerals = getColonyMinerals()
     const minerals = getMinerals()
     const transientState = getTransientState()
-    const facilityMinerals = getFacilityMinerals()
-    const colonies = getColonies()
-    const governors = getGovernors()
     
     let foundColonyMineralArray = []
+
     if (!transientState.colonyId) {
         return ""
     } else {
         for (const colonyMineral of colonyMinerals) {
-           
             //as we iterate the array, we need to access the transient state to get the colonyId
             if (colonyMineral.colonyId === transientState.colonyId) {
             //compare the transient state's colonyId to colonyMineral's colonyId, if those are equal, then we need that colonyMineral object
@@ -22,21 +19,11 @@ export const ColonyMinerals = () => {
             }
         }
         let html = "<ul>"
+
         for (const foundColonyMineral of foundColonyMineralArray) {
             const foundMineral = minerals.find(mineral => foundColonyMineral.mineralId === mineral.id)
             html += `<li>${foundColonyMineral.quantity} ${foundMineral.name}</li>`
         }
-
-        // for (const colonyMineral of colonyMinerals) {
-        //     const foundGovernor = governors.find(governor => colonyMineral.selectedGovernor === governor.id)
-        //     if (foundGovernor.colonyId === colonyMineral.colonyId){
-        //         const foundFacilityMineral = facilityMinerals.find(facilityMineral => colonyMineral.selectedFacilityMineral === facilityMineral.id)
-        //         const foundMineral = minerals.find(mineral => mineral.id === foundFacilityMineral.mineralId)
-        //         html += `<li>${colonyMineral.quantity} ${foundMineral.name}</li>`
-        //     } else {
-        //         html += ""
-        //     }
-        // }
 
         html += "</ul>"
 
