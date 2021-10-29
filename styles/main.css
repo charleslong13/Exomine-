@@ -51,14 +51,20 @@ header {
 .colonyMinerals {
     margin: 10px;
     /* border: green dotted 2px; */
-    width: 20%;
-    margin-left: 60%;
+    width: 35%;
+
+    margin-left: 80px;
+  
+    text-align: center;
+    background-color: rgba(1, 1, 15, 0.747);
 }
 
 .facilityMinerals {
     margin: 10px;
     /* border: green dotted 2px; */
     width: 40%;
+    background-color: rgba(1, 1, 15, 0.747);
+    text-align: center;
 }
 
 .cart {
@@ -66,6 +72,7 @@ header {
     /* border: green dotted 2px; */
     width: 35%;
     margin-left: 40%;
+    background-color: rgba(1, 1, 15, 0.747);
 }
 
 ul {
@@ -74,6 +81,11 @@ ul {
 }
 
 .cart__title {
+    text-align: center;
+    margin: 15px;
+}
+
+.colonyMinerals__list {
     text-align: center;
     margin: 15px;
 }
@@ -88,3 +100,7 @@ html {
     color: orangered;
 }
 
+#cart__button {
+  margin-left: 35%;
+  margin-right: 35%;
+}
