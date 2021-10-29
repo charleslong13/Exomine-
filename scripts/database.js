@@ -185,7 +185,7 @@ export const setColony = (ColonyId) => {
 
 export const setGovernor = (governorId) => {
     database.transientState.selectedGovernor = governorId
-    document.dispatchEvent( new CustomEvent("stateChanged"))
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const getGovernors = () => {
@@ -217,28 +217,46 @@ export const getTransientState = () => {
 }
 
 export const purchaseMineral = () => {
-    
+
     //find the object in facilityMinerals whose quantity needs to be decremented
-    for (const facilityMineral of database.facilityMinerals) {
-
-        //find the object in colonyMinerals whose quantity needs to be incremented
-        for (const colonyMineral of database.colonyMinerals) {
-
-            if (facilityMineral.mineralId === colonyMineral.mineralId && database.transientState.selectedFacilityMineral === facilityMineral.id) {
-                //use .quantity ++ use .quantity -- to adjust quantities
-
-                facilityMineral.quantity--
-
-                colonyMineral.quantity++
-                // if the mineral doesnt exsit already then we need to add it to the colony mineral.
-            } else if (database.transientState.selectedFacilityMineral === facilityMineral.id) {
-                
-
-            }
-
+    const foundFacilityMineral = database.facilityMinerals.find(
+        (eachObj) => {
+            return database.transientState.selectedFacilityMineral === eachObj.id
         }
+    )
+    foundFacilityMineral.quantity--
+
+    const foundColonyMineral = database.colonyMinerals.find(
+        (eachObj) => {
+            return database.transientState.colonyId === eachObj.colonyId && eachObj.mineralId === foundFacilityMineral.mineralId
+        }
+    )
+    if (foundColonyMineral) {
+        foundColonyMineral.quantity++
+    } else {
+        let newObj = {}
+
+        // need to add id key
+        const lastIndex = database.colonyMinerals.length - 1
+        newObj.id = database.colonyMinerals[lastIndex].id + 1
+
+        // need colonyId key
+        newObj.colonyId = database.transientState.colonyId
+
+        // need mineralId key
+        newObj.mineralId = foundFacilityMineral.mineralId
+
+        // need Quantity key
+        newObj.quantity = 1
+
+        database.colonyMinerals.push(newObj)
+
+
     }
 
 
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
+
+
+
