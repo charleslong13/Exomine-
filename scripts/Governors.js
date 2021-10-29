@@ -1,4 +1,4 @@
-import { getGovernors, getTransientState, setColony } from "./database.js"
+import { getGovernors, getTransientState, setColony, } from "./database.js"
 
 
 document.addEventListener(

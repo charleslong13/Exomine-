@@ -152,16 +152,14 @@ const database = {
         {
             id: 1,
             colonyId: 1,
-            selectedFacilityMineral: 2,
-            selectedFacility: 1,
+            mineralId:3,
             quantity: 5
         },
         {
-            id: 1,
+            id: 2,
             colonyId: 1,
-            selectedFacilityMineral: 5,
-            selectedFacility: 2,
-            quantity: 3
+            mineralId: 2,
+            quantity: 10
         },
     ],
     transientState: {
@@ -214,23 +212,9 @@ export const getTransientState = () => {
 }
 
 export const purchaseMineral = () => {
-    // Copy the current state of user choices
-    const newOrder = {...database.transientState}
-    // Add a new primary key to the object
-    const lastIndex = database.colonyMinerals.length - 1
-    //Account for when the array may have a length of zero
-    if (lastIndex === -1){
-        newOrder.id = 1
-    } else {
-        newOrder.id = database.colonyMinerals[lastIndex].id + 1
-    }
-    // New order quantity for increment
-    newOrder.quantity = 0
-    // Add the new order object to colony Minerals state
-    database.colonyMinerals.push(newOrder)
-    // Reset the temporary state for user choices
-    database.transientState = {}
-    // Broadcast custom event to entire document so that the
-    // application can re-render and update state
+    //find the object in facilityMinerals whose quantity needs to be decremented
+    //find the object in colonyMinerals whose quantity needs to be incremented
+    //use .quantity ++ use .quantity --
+
     document.dispatchEvent( new CustomEvent("stateChanged"))
 }
