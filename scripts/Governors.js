@@ -12,7 +12,6 @@ document.addEventListener(
                 return
             } else {
             setColony(foundGovernor.colonyId)
-            // setGovernor(parseInt(event.target.value))
             }
             
         }
