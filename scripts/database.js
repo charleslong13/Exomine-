@@ -58,7 +58,7 @@ const database = {
         {
             id: 2,
             name: "Pheonix Tower",
-            active: true
+            active: false
         },
         {
             id: 3,

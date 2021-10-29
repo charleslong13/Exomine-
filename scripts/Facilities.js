@@ -28,10 +28,12 @@ export const Facility = () => {
 
     const arrayOfFacilities = facilities.map((facility) => {
         //retain selection on re-render
-        if (transientState.selectedFacility === facility.id) {
-            return `<option value="${facility.id}" selected>${facility.name}</option>`
-        } else {
-            return `<option value="${facility.id}">${facility.name}</option>`
+        if(facility.active === true) {
+            if (transientState.selectedFacility === facility.id) {
+                return `<option value="${facility.id}" selected>${facility.name}</option>`
+            } else {
+                return `<option value="${facility.id}">${facility.name}</option>`
+            }
         }
     })
 
