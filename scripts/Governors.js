@@ -1,4 +1,4 @@
-import { getGovernors, getTransientState, setColony, } from "./database.js"
+import { getGovernors, getTransientState, setColony, setGovernor} from "./database.js"
 
 
 document.addEventListener(
@@ -12,6 +12,7 @@ document.addEventListener(
                 return
             } else {
             setColony(foundGovernor.colonyId)
+            setGovernor(governorId)
             }
             
         }
@@ -30,7 +31,7 @@ export const Governors = () => {
     //assigning selection options for the dropdown menu 
     const arrayOfGovernors = governors.map((governor) => {
          //retain selection on re-render
-        if(transientState.colonyId === governor.colonyId){
+        if(transientState.selectedGovernor === governor.id){
             return `<option value="${governor.id}" selected>${governor.name}</option>`
         } else {
             return `<option value="${governor.id}">${governor.name}</option>`
