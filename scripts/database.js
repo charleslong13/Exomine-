@@ -171,6 +171,30 @@ const database = {
             colonyId: 1,
             mineralId: 2,
             quantity: 10
+        }, 
+        {
+            id: 3,
+            colonyId: 2,
+            mineralId: 1,
+            quantity: 16
+        },
+        {
+            id: 4,
+            colonyId: 2,
+            mineralId: 4,
+            quantity: 20
+        },  
+        {
+            id: 5,
+            colonyId: 3,
+            mineralId: 5,
+            quantity: 23
+        },
+        {
+            id: 6,
+            colonyId: 3,
+            mineralId: 6,
+            quantity: 12
         },
     ],
     transientState: {
@@ -236,37 +260,36 @@ export const purchaseMineral = () => {
         }
     )
     foundFacilityMineral.quantity--
-
+    //find the object in colonyMinerals whose quantity needs to be incremented
     const foundColonyMineral = database.colonyMinerals.find(
         (eachObj) => {
             return database.transientState.colonyId === eachObj.colonyId && eachObj.mineralId === foundFacilityMineral.mineralId
         }
     )
+    //check to see if the correct colonyMineral exists for incrementing. If it doesn't, add a new object.
     if (foundColonyMineral) {
         foundColonyMineral.quantity++
     } else {
         let newObj = {}
 
-        // need to add id key
+        //add id key
         const lastIndex = database.colonyMinerals.length - 1
         newObj.id = database.colonyMinerals[lastIndex].id + 1
 
-        // need colonyId key
+        // add colonyId key
         newObj.colonyId = database.transientState.colonyId
 
-        // need mineralId key
+        // add mineralId key
         newObj.mineralId = foundFacilityMineral.mineralId
 
-        // need Quantity key
+        // add Quantity key
         newObj.quantity = 1
 
         database.colonyMinerals.push(newObj)
-
-
     }
 
-
     document.dispatchEvent(new CustomEvent("stateChanged"))
+
 }
 
 

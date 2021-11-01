@@ -9,10 +9,10 @@ export const Cart = () => {
     if (!transientState.selectedFacilityMineral) {
         return ""
     } else {
-    const foundFacilityMineral = facilityMinerals.find(facilityMineral => transientState.selectedFacilityMineral === facilityMineral.id)
-    const foundMineral = minerals.find(mineral => mineral.id === foundFacilityMineral.mineralId)
-    const foundFacility = facilities.find(facility => facility.id === transientState.selectedFacility)
-    return `
+        const foundFacilityMineral = facilityMinerals.find(facilityMineral => transientState.selectedFacilityMineral === facilityMineral.id)
+        const foundMineral = minerals.find(mineral => mineral.id === foundFacilityMineral.mineralId)
+        const foundFacility = facilities.find(facility => facility.id === transientState.selectedFacility)
+        return `
         1 ton of ${foundMineral.name} from ${foundFacility.name}.`
     }
 }
