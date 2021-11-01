@@ -28,7 +28,7 @@ export const FacilityMinerals = () => {
                 //find the mineral where the id matched the mineralid on the facilitymineral object, in order to grab the name from the correct mineral object
                 const foundMineral = minerals.find(mineral => mineral.id === facilityMineral.mineralId)
                 //add html list items with radio buttons, if there is a mineral chosen, mark the correct one as checked.
-                if (transientState.selectedFacilityMineral=== facilityMineral.id) {
+                if (transientState.selectedFacilityMineral === facilityMineral.id) {
                     html += `<li> <input type="radio" name="mineralChoice" value=${facilityMineral.id} checked>${facilityMineral.quantity} ${foundMineral.name}</li>`
                 } else {
                     html += `<li> <input type="radio" name="mineralChoice" value=${facilityMineral.id}>${facilityMineral.quantity} ${foundMineral.name}</li>`

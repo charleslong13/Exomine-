@@ -1,10 +1,10 @@
-import { getColonyMinerals, getTransientState, getColonies, getMinerals} from "./database.js";
+import { getColonyMinerals, getTransientState, getColonies, getMinerals } from "./database.js";
 
 export const ColonyMinerals = () => {
     const colonyMinerals = getColonyMinerals()
     const minerals = getMinerals()
     const transientState = getTransientState()
-    
+
     let foundColonyMineralArray = []
 
     if (!transientState.colonyId) {
@@ -13,9 +13,9 @@ export const ColonyMinerals = () => {
         for (const colonyMineral of colonyMinerals) {
             //as we iterate the array, we need to access the transient state to get the colonyId
             if (colonyMineral.colonyId === transientState.colonyId) {
-            //compare the transient state's colonyId to colonyMineral's colonyId, if those are equal, then we need that colonyMineral object
-                    foundColonyMineralArray.push(colonyMineral)
-            //push that object to an array (set empty array at beginning)
+                //compare the transient state's colonyId to colonyMineral's colonyId, if those are equal, then we need that colonyMineral object
+                foundColonyMineralArray.push(colonyMineral)
+                //push that object to an array (set empty array at beginning)
             }
         }
         let html = "<ul>"
